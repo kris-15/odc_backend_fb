@@ -1,5 +1,7 @@
 <?php
-namespace model;
+namespace models;
+
+require "Model.php";
 class AmisModel extends Model{
     
     public function create_fake_friend($firstname, $lastname, $picture=null){

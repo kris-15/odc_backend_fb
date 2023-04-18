@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace models;
 class Model{
     public function get_pdo(){
         $pdo = new  \PDO("mysql:host=localhost;dbname=facebook", "root", "");

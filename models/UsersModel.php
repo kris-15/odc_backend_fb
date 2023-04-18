@@ -1,6 +1,6 @@
 <?php
 
-namespace model;
+namespace models;
 require "Model.php";
 
 class UsersModel extends Model{

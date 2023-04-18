@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "../models/AmisModel.php";
-use model\AmisModel;
+use models\AmisModel;
 
 $ami = new AmisModel();
 if(isset($_POST['add'])){
