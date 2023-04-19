@@ -1,6 +1,6 @@
 <?php
 require "../models/AmisModel.php";
-use model\AmisModel;
+use models\AmisModel;
 $ami = new AmisModel();
 $json = file_get_contents('php://input');
 $flutter_data = json_decode($json);
