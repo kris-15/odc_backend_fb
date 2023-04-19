@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['error']=null;
 require "../models/UsersModel.php";
-use model\UsersModel;
+use models\UsersModel;
 
 $user = new UsersModel();
 if(isset($_POST['login'])){

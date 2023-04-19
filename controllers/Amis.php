@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['success']=null;
+$_SESSION['error']=null;
 require "../models/AmisModel.php";
 use models\AmisModel;
 
@@ -11,7 +13,7 @@ if(isset($_POST['add'])){
             $tmp = $_FILES['picture']['tmp_name'];
             $extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
             $nom_image = date('Ymdhis').".".$extension;
-            $chemin = "C:/academy/".$nom_image;
+            $chemin = "../photo/".$nom_image;
             move_uploaded_file($tmp, $chemin);
         }
         else {
