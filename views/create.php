@@ -1,48 +1,61 @@
 <?php 
-    session_start();
-    include "../apps/header.php"
-
+    include "apps/header.php";
 ?>
-<div class="container mt-2">
+<div class="container text-center">
     <div class="row">
-        <div class="col-md-3 bg-light"></div>
-        <div class="col-md-9">
-            <h3 class="text-center mb-3">Ajouter une personne</h3>
-            <?php if(!empty($_SESSION['success'])): ?>
-                <div class="alert alert-success text-center mx-4"><?= $_SESSION['success']; session_destroy() ?></div>
-            <?php endif ?>
+        <div class="col-md-6 offset-md-3">
+            <div class="my-2"><img src="https://z-m-static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="" width="112" class="fs-1"></div>
             <?php if(!empty($_SESSION['error'])): ?>
-                <div class="alert alert-danger text-center mx-4"><?= $_SESSION['error'] ; session_destroy()?></div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['error'] ; session_destroy(); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif ?>
-            <form action="../controllers/Amis.php" method="post" enctype="multipart/form-data" >
-                <div class="row m-2">
-                    <div class="col-md-4">
-                        <label for="exampleInputEmail1" class="form-label">Nom</label>
+            <form action="?controller=user&action=register" method="post" enctype="multipart/form-data">
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control bg-light" name="lastname" placeholder="Entrez votre Nom" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $_POST['lastname']??""?>">   
                     </div>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" name="lastname" placeholder="Le nom du fake ami" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>   
+                    <div class="col-md-6">
+                        <input type="text" class="form-control bg-light" name="firstname" placeholder="Entrez Prenom" id="exampleInputPassword1" value="<?= $_POST['firstname']??""?>">
+                    </div>
                 </div>
-                <div class="row m-2">
-                    <div class="col-md-4">
-                        <label for="exampleInputPassword1" class="form-label">Prenom</label>
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <input type="date" class="form-control bg-light" name="birthdate" placeholder="Entrez votre date de nais" id="birthDate">   
                     </div>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" name="firstname" placeholder="Le prenom du fake ami" id="exampleInputPassword1">
-                    </div>   
+                    <div class="col-md-6">
+                        <input type="email" class="form-control bg-light" name="mail" placeholder="Votre Adresse e-mail" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $_POST['mail']??""?>">
+                    </div>
                 </div>
-                <div class="row m-2">
-                    <div class="col-md-4">
-                        <label for="exampleInputPassword1" class="form-label">Photo</label>
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <input type="password" class="form-control bg-light" name="password" placeholder="Créez votre Mot de passe" id="password">   
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
+                        <input type="password" class="form-control bg-light" name="cfpassword" placeholder="Confirmez votre Mot de passe" id="cfpassword">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-2">
+                        <label for="" class="form-label d-flex align-item-center">Photo Profil</label>
+                    </div>
+                    <div class="col-md-10">
                         <input type="file" name="picture" class="form-control" placeholder="Photo de couverture" id="exampleInputPassword1">
-                    </div>   
+                    </div>
                 </div>
-                <div class="d-flex justify-content-end ">
-                    <button type="submit" name="add" class="btn btn-primary mx-3">Ajouter</button>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary text-white fw-bold" name="register">Confirmer</button>
+                    
                 </div>
-            </form>
+                    
+                    <div class="row my-2">
+                        <div class="col-md-8 offset-md-2 ">
+                            <hr class="">
+                            <a href="?controller=user&action=loginPage" class="btn btn-light">Se connecter</a>
+                        </div>
+                    </div>
+                </form>
         </div>
     </div>
 </div>
