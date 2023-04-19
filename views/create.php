@@ -1,14 +1,18 @@
-<?php include "../apps/header.php"?>
+<?php 
+    session_start();
+    include "../apps/header.php"
+
+?>
 <div class="container mt-2">
     <div class="row">
         <div class="col-md-3 bg-light"></div>
         <div class="col-md-9">
             <h3 class="text-center mb-3">Ajouter une personne</h3>
-            <?php if(isset($sucess)): ?>
-                <div class="alert alert-success text-center"><?= $sucess ?></div>
+            <?php if(!empty($_SESSION['success'])): ?>
+                <div class="alert alert-success text-center mx-4"><?= $_SESSION['success']; session_destroy() ?></div>
             <?php endif ?>
-            <?php if(isset($error)): ?>
-                <div class="alert alert-danger text-center"><?= $error ?></div>
+            <?php if(!empty($_SESSION['error'])): ?>
+                <div class="alert alert-danger text-center mx-4"><?= $_SESSION['error'] ; session_destroy()?></div>
             <?php endif ?>
             <form action="../controllers/Amis.php" method="post" enctype="multipart/form-data" >
                 <div class="row m-2">
